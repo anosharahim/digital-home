@@ -1,6 +1,6 @@
 import {MdDeleteForever} from 'react-icons/md';
 
-const Note () => {
+const Note = () => {
     return(
         <div className='note'>
         <span> Hello, this is our first note! </span> 
