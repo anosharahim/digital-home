@@ -1,5 +1,6 @@
 import NotesList from "./components/NotesList";
 import "./App.css";
+import './index.css';
 
 
 const App = () => {
