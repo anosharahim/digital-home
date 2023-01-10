@@ -1,4 +1,5 @@
 import Note from './Note';
+import AddNote from './AddNote';
 
 const NotesList = () => {
     return (
@@ -7,6 +8,7 @@ const NotesList = () => {
             <Note />
             <Note />
             <Note />
+            <AddNote/>
         </div>
     );
 };
