@@ -1,5 +1,6 @@
+
 .note {
-    background-color: #fef68a;
+    background-color: #acc3ff;
     margin-bottom: 10px;
     border-radius: 10px;
     padding: 1rem; /*relative to font size*/
@@ -15,4 +16,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+/*but this isn't working?? */
+.notes-list {
+    display: grid;
+    grid-gap: 1rem;
+    /* set automatic dimensions to make it dynamic in minmax with autofit. 
+    A column cannot be smaller than 250px and bigger than 1fractionalunit i.e. whatever space is available.
+    grid-template-columns: repeat(autofit, minmax(250px,1fr)); */
+    grid-template-columns: repeat(4, 250);
 }
