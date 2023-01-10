@@ -1,0 +1,18 @@
+.note {
+    background-color: #fef68a;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 1rem; /*relative to font size*/
+    min-height: 170px;
+    /*Create a flex box to position children of note class
+    in a certain order. We define direction and justify content to be column so it is vertical*/
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    
+}
+.note-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
