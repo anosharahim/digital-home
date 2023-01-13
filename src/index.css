@@ -17,7 +17,12 @@
     justify-content: space-between;
 }
 
-/*but this isn't working?? */
+.container { 
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .notes-list {
     display: grid;
     grid-gap: 1rem;
