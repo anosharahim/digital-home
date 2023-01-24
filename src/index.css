@@ -1,3 +1,16 @@
+.note.new {
+    background-color: #67d7cc;
+}
+
+textarea{
+    border: none;
+    resize: none;
+    background-color: #67d7cc;
+}
+
+textarea:focus{
+    outline: none;  
+}
 
 .note {
     background-color: #acc3ff;
