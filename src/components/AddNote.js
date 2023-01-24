@@ -7,7 +7,7 @@ const AddNote = () => {
             placeholder="type to add a note"
             ></textarea>
             <div className="note-footer">
-                <small>150 remaining</small>
+                <small>200 remaining</small>
                 <button className="save"> Save </button>
             </div>
         </div>
