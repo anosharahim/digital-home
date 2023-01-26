@@ -9,6 +9,7 @@ const AddNote = ({ handleAddNote }) => {
 
   const handleSaveClick = () => {
     handleAddNote(noteText);
+    setNoteText("");
   };
 
   return (
