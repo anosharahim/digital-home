@@ -2,9 +2,11 @@ import { useState } from "react";
 
 const AddNote = ({ handleAddNote }) => {
   const [noteText, setNoteText] = useState("");
-  const characterLimit = 200;
+  const characterLimit = 200; // hardcodes character limit
   const handleChange = (event) => {
-    setNoteText(event.target.value);
+    if (characterLimit - event.target.value.length >= 0) {
+      setNoteText(event.target.value); // only allow user to type if character limit is not exceeded
+    }
   };
 
   const handleSaveClick = () => {
