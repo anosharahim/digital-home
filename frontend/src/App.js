@@ -1,43 +1,36 @@
 import NotesList from "./components/NotesList";
 import "./index.css";
 import Search from "./components/Search";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
+import axios from "axios";
 
 const App = () => {
-  const [notes, setNote] = useState([
-    {
-      id: nanoid(),
-      text: "This is my first note",
-      date: "15/4/2021",
-    },
-    {
-      id: nanoid(),
-      text: "This is my second note",
-      date: "15/5/2021",
-    },
-    {
-      id: nanoid(),
-      text: "This is my fifth note",
-      date: "15/6/2021",
-    },
-    {
-      id: nanoid(),
-      text: "This is my fourth note",
-      date: "15/7/2021",
-    },
-  ]);
+  const [notes, setNote] = useState([]);
+
+  const refreshList = () => {
+    axios
+      .get("/api/notes/")
+      .then((res) => setNote(res.data))
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    refreshList();
+  }, []);
 
   const [searchText, setSearchText] = useState("");
 
   const addNote = (text) => {
     const newnote = {
-      id: nanoid(),
       text: text,
-      // current date
       date: new Date().toLocaleDateString(),
     };
-    setNote([...notes, newnote]);
+    axios.post(`/api/notes/`, newnote).then((res) => {
+      setNote([...notes, res.data]);
+
+      // refreshList();
+    });
   };
 
   const deleteNote = (id) => {
