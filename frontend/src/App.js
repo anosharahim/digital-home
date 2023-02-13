@@ -19,7 +19,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    refreshList(); // this is a hook that runs the refreshList function when the page is loaded or refreshed
+    refreshList(); // this is a hook that runs the refreshList function when the page is loaded or refreshed- only once at the start
   }, []);
 
   const [searchText, setSearchText] = useState(""); // this sets the state of the search text to an empty string
