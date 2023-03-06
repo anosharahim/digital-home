@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
+import { App } from "./App";
 
 // index js is the root and all other files go down from there
 const root = ReactDOM.createRoot(document.getElementById("root"));

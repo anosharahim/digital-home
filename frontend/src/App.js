@@ -4,9 +4,16 @@ import Search from "./components/Search";
 import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import axios from "axios";
+import Cookies from "universal-cookie"; // this is used to store the user's token in the browser
+import { LoginOrSignupPage } from "./components/LoginOrSignupPage";
 
-const App = () => {
+const cookies = new Cookies();
+
+export const App = () => {
   // this is the main component of the app that renders the other components
+
+  // check if authenticated using useState. false by default
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const [notes, setNote] = useState([]); // this sets the state of notes to an empty array that is dynamically updated
 
@@ -40,19 +47,21 @@ const App = () => {
   };
 
   //App.js returns the main container of the app
-  return (
-    <div className="container">
-      <h1> Notes </h1>
-      <Search handleSearchNote={setSearchText} />
-      <NotesList
-        notes={notes.filter((note) =>
-          note.text.toLowerCase().includes(searchText)
-        )}
-        handleAddNote={addNote}
-        handleDeleteNote={deleteNote}
-      />
-    </div>
-  );
+  if (isAuthenticated) {
+    return (
+      <div className="container">
+        <h1> Notes </h1>
+        <Search handleSearchNote={setSearchText} />
+        <NotesList
+          notes={notes.filter((note) =>
+            note.text.toLowerCase().includes(searchText)
+          )}
+          handleAddNote={addNote}
+          handleDeleteNote={deleteNote}
+        />
+      </div>
+    );
+  } else {
+    <LoginOrSignupPage />;
+  }
 };
-
-export default App;
